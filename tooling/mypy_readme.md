@@ -96,5 +96,32 @@ def stars(*args: int, **kwargs: float) -> None:
 
 # Local type inference
 
+- After adding type hints to a function, mypy will automatically type check that function’s body. While doing so, mypy will try and *infer* as many details as possible.
+
+- If mypy cannot infer type of a variable, it will warn you.
+
+  ``` python
+  my_global_dict = {}  # Error: Need type annotation for "my_global_dict"
+  ```
+
+- If you know `my_global_dict` is a dict of int to floats, you can annotate it accordingly
+
+  ``` python
+  # If you're using Python 3.9+
+  my_global_dict: dict[int, float] = {}
+  
+  # If you're using Python 3.6+
+  my_global_dict: Dict[int, float] = {}
+  ```
+
+# Library Stubs and typeshed
+
+- `mypy` uses library stubs to check code interacting with library modules, including the python stanadard library.
 
 
+
+# Configuring MyPy
+
+- Use command line argument to specify the strictness of `mypy`
+- Passing the option `--disallow-untyped-defs` to mypy doesn't allow statically typed function
+- Passing the option `--strict` enables many(not all) of the strictness options including `--disallow-untyped-defs`
