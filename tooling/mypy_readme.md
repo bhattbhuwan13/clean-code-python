@@ -125,3 +125,6 @@ def stars(*args: int, **kwargs: float) -> None:
 - Use command line argument to specify the strictness of `mypy`
 - Passing the option `--disallow-untyped-defs` to mypy doesn't allow statically typed function
 - Passing the option `--strict` enables many(not all) of the strictness options including `--disallow-untyped-defs`
+
+# References
+1. [Official mypy documentation](https://mypy.readthedocs.io/en/stable/getting_started.html)
