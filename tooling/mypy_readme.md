@@ -116,9 +116,9 @@ def stars(*args: int, **kwargs: float) -> None:
 
 # Library Stubs and typeshed
 
-- `mypy` uses library stubs to check code interacting with library modules, including the python stanadard library.
-
-
+- `mypy` uses library **stubs** to check code interacting with library modules, including the python stanadard library.
+- A library stub defines public interface of the library, including classes, variables and functions, and their types.
+- Stubs in the [typeshed](https://github.com/python/typeshed) projects are included in mypy. For reference, you can view an example stub for the `auth` module in the `requests` library [here](https://github.com/python/typeshed/blob/master/stubs/requests/requests/auth.pyi)
 
 # Configuring MyPy
 
@@ -128,3 +128,4 @@ def stars(*args: int, **kwargs: float) -> None:
 
 # References
 1. [Official mypy documentation](https://mypy.readthedocs.io/en/stable/getting_started.html)
+
