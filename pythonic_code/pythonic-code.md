@@ -82,3 +82,30 @@ with contextlib.supress(DataConversionException):
   pass
 ```
 
+
+
+# Properties, attributes, and different types of methods for objects
+
+- In python all properties and functions of an object are public
+- There is no strict enforcement, but there are some conventions. An attribute that starts with an underscore is meant to be private to that object, and it is expected that no external agent calls it. 
+
+## Underscores in python
+
+- All attributes with a leading underscore can be accessed by the object.
+- Attributes with leading double underscores are stored differently. They follow the naming convention `_class-name__attr-name`.
+
+```python
+class Connector:
+  def __init__(self, source):
+    self.source = source
+    self.__timeout = 60
+   
+  def connect(self):
+    print("Connecting")
+    
+conn = Connector('postgres')
+print(conn._Connector__timeout) #prints 60
+```
+
+
+
