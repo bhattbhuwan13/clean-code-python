@@ -136,3 +136,16 @@ class Coordinate:
 - Properties are a good way to achieve command and query separation. The command and query separation principle states that a method of an object should either answer to something or do something, but not both.
 - The `@property` decorator is the query that will answer to something, and `@<property_name>.setter` is the command that will do something.
 
+# Creating Classes with Compact Syntax
+Typically when an object needs to hold values, we declare an `__init__` method inside the class as follows:
+
+```python
+def __init__(self, x, y, ...):
+	self.x = x
+	self.y = y
+```
+
+Since python 3.7, we can simplify this by  using dataclasses.
+
+- The `dataclasses` module provide a `@dataclass` decorator, which, when applied to a class automatically generates the `__init__()` method using the class attributes.  
+- j
