@@ -109,3 +109,30 @@ print(conn._Connector__timeout) #prints 60
 
 
 
+## Properties
+
+- Setter and Getter methods in python can be encapsulated usign properties
+- Properties can also help us with data validation
+- Example, geographical coordinates can represent each location with two values however, those values need to be within a certain range.
+
+```python
+class Coordinate:
+    def __init__(self, lat: float, long: float):
+        self._latitude = self._longitude = None
+        self.latitude = lat
+        self.longitude = long
+
+    @property
+    def latitude(self) -> float:
+        return self._latitude
+
+    @latitude.setter
+    def latitude(self, lat_value: float) -> None:
+        if lat_value not in range(-90, 90+l):
+            raise ValueError(f"{lat_value} is an invalid value for latitude")
+        self._latitude = lat_value
+```
+
+- Properties are a good way to achieve command and query separation. The command and query separation principle states that a method of an object should either answer to something or do something, but not both.
+- The `@property` decorator is the query that will answer to something, and `@<property_name>.setter` is the command that will do something.
+
