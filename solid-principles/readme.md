@@ -7,7 +7,7 @@ SOLID principles entail a series of good practices to achieve better quality sof
 5. D: Dependency Inversion Principle  
 
 ## Single Responsibility Principle
-- A software comoponent(a class or function in general) should have only one responsibility.
+- A software component(a class or function in general) should have only one responsibility.
 - A class should be in charge of doing just one concrete thing and hence it must have only one reason to change.
 - Only if one thing on the domain problem changes will the class have to be updated.
 - In all cases, avoid god objects i.e avoid objects with multiple responsibilities. These objects group different unrelated behaviours, thus making them harder to maintain.
@@ -36,8 +36,18 @@ To make the solution more maintainable, we break down each method in the previou
 - Changes to any of these classes do not impact the rest. Changes are now local, the impact is minimal, and each class is easier to maintain.
 - The new classes define interfaces that are not only more maintainable but also reusable.  
 
-**What are the right boundaries to separate responsibilities?**  
-Start writing a monolithic class, in order to understand what the internal collaborations are and how responsibilities are distributed. This will help you get a clearer picture of the new abstractions that need to be created.
+#### What are the right boundaries to separate responsibilities?
+
+**Start writing a monolithic class, in order to understand what the internal collaborations are and how responsibilities are distributed. This will help you get a clearer picture of the new abstractions that need to be created.**
+
+
+
+
+
+
+
+
+
 
 
 
