@@ -145,10 +145,15 @@ class SystemMonitor:
 
 
 
+## Liskov's substitution principle  
+It states that there is a series of properties that an object must adhere to to preserve the reliability of its design. For any class, a client should be able to use any of its subtypes indistinguishably without even noticing, and therefore without compromising the expected behaviour at runtime. 
 
+>If *S* is a subtype of *T*, then object of type *T* may be replaced by objects of type *S*, without breaking the program.  
 
-
-
+**Example**  
+Let us assume that a class `ClientClass` needs to interact with objects of another class `Type`
+. Generally, `Type` will be an interface, abstraction, or a class without a concrete interface. `Type` will have multiple subclasses. According to LSP, if the hierarchy is correctly implemented, the `ClientClass` will be able to work with instances of any of the instances without even noticing.  
+![LSP](./images/lsp_proper_implementation.png)
 
 
 
