@@ -156,10 +156,37 @@ Let us assume that a class `ClientClass` needs to interact with objects of anoth
 ![LSP](./images/lsp_proper_implementation.png)
 
 
+- LSP is about creating correct hierarchies so that classes derived from a base one are polymorphic along the parent one, with respect to the methods on their interface.
 
 
+## Interface Segregation  
 
+- An interface is represented by the set of methods and properties an object exposes. 
+- The interface separates the definition of the exposed behavior for a class from its implementation.
+- In pythoh, abstract base class facilitate the process of separation of method definition and implementation.
 
+### An interface that provides too much
 
+```python
+from abc import ABC, abstractmethod
+class EventParser(ABC):
+    def from_xml():
+        pass
+    def from_json():
+        pass
+```
+- The above implementation is not optimal because we may have a class that doesn't need to parse events from json.  But, if that class inherits from `EventParser` it must implement the `from_json()` method introducing a redundancy.  
 
+### The smaller the interface, the better  
+**Solution: Separate this into two different interfaces**  
+- This will make the code reusable and eliminate redundancy.  
+- We can still achieve the previous functionality by making our event parser class implement both interfaces.
+
+![Smaller Interfaces](./images/smaller_interfaces.png)
+
+- With the above desing, the system is more flexible.  
+- Failure to comply with this principle will create an interface that will be coupled with orthogonal functionality, and this derived class will also fail to comply with the SRP
+
+### How small should an interface be?
+The fact that an interface should be small should be understood in terms of cohesion- it should do one thing. This doesn't necessarily mean that an interface should have only one method, it could have multiple related methods.  
 
