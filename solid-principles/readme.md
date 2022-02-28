@@ -190,3 +190,33 @@ class EventParser(ABC):
 ### How small should an interface be?
 The fact that an interface should be small should be understood in terms of cohesion- it should do one thing. This doesn't necessarily mean that an interface should have only one method, it could have multiple related methods.  
 
+## Dependency Inversion
+
+- Used to make our code independent of things that are fragile, volatile, or out of our control.  
+
+
+>Abstractions have to be organized in such a way that they do not depend on details, but rather the other way around- the details(concrete implementations) should depend on abstractions.  
+
+### A case of rigid dependencies
+
+We have to classes, `EventStreamer` and `Syslog` that interact as shown in the figure:  
+![A case of rigid dependencies](./images/rigid_dependencies.png "A case of rigid dependencies")
+
+- The `stream()` method in the `EventStreamer` class needs to call the `send()` method fo the `Syslog` class to send data to `Syslog`.
+- If something changes in the way we want to send data to `Syslog`, we need to modify the `stream()` method inside `EventStreamer`.  
+
+Above problems can be solved by making `EventStreamer` work with an interface rather than a concrete class. The new design is shown below:  
+
+
+![Dependency Inversion](./images/dependency_inversion.png)
+
+
+
+- Now `EventStreamer` is working with an interface `DataTargetClient` rather than its concrete implementation i.e `Syslog`
+- Every data target now must implement the interface and implements its own `send()` method. `EventStreamer` need not worry how the `send()` method is implemented, it just need to call it.  
+
+
+## References
+
+- Clean Code in Python, Mariano Anaya
+
