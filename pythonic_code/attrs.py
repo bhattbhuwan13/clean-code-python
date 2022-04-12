@@ -4,7 +4,7 @@ class Connector:
         self.__timeout = 60
 
     def connect(self):
-        print("Connecting with {}".format(self.source))
+        print(f"Connecting with {self.source}")
 
 conn = Connector('postgres')
 
